@@ -1,0 +1,33 @@
+server:
+  port: ${PORT}
+spring:
+
+  datasource:
+    url: ${URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+
+  output:
+    ansi:
+      enabled: always
+
+  config:
+    import: file:env.properties
+
+  cache:
+    type: redis
+
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
